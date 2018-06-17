@@ -70,6 +70,10 @@ export default {
 </script>
 
 <style scoped>
+body {
+  margin-top: 80px;
+}
+
 .song {
   padding: 20px;;
   height: 330px;

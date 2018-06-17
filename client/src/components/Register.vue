@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid fill-height>
+  <v-container fluid fill-height class="negative-margin">
     <v-layout align-center justify-center>
       <v-flex xs6>
         <div class="white elevation-2">
@@ -67,5 +67,9 @@ export default {
 <style scoped>
 .error {
   color: red;
+}
+
+.negative-margin {
+  margin-top: -80px;
 }
 </style>

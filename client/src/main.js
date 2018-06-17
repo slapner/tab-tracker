@@ -7,11 +7,13 @@ import Vuetify from 'vuetify'
 import {sync} from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css'
 import 'babel-polyfill'
+import VueYouTubeEmbed from 'vue-youtube-embed'
 import store from '@/store/store'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
+Vue.use(VueYouTubeEmbed)
 
 sync(store, router)
 

@@ -1,12 +1,10 @@
 <template>
-  <!-- <div id="app"> -->
-    <v-app>
-      <v-content>
-        <page-header/>
-        <router-view/>
-      </v-content>
-    </v-app>
-  <!-- </div> -->
+  <v-app>
+    <v-content>
+      <page-header/>
+      <router-view />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
@@ -22,5 +20,9 @@ export default {
 <style>
 .danger-alert {
   color: red;
+}
+
+body {
+  margin-top: 80px;
 }
 </style>

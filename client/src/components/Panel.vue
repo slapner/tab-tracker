@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid class="mt-5">
+  <v-container>
     <v-layout row>
       <v-flex>
-        <div class="white elevation-2 mt-5">
+        <div class="white elevation-2">
           <v-toolbar flat dense dark color="cyan">
             <v-toolbar-title>{{ title }}</v-toolbar-title>
             <slot name="action" />
