@@ -6,7 +6,7 @@
         class="title pr-4"
         tag="span"
         :to="{
-          name: 'root'
+          name: 'songs'
         }">
         TabTracker
       </router-link>
@@ -57,7 +57,7 @@ export default {
       this.$store.dispatch('setUser', null)
 
       this.$router.push({
-        name: 'root'
+        name: 'songs'
       })
     }
   }
