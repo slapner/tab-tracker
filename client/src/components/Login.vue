@@ -16,12 +16,16 @@
                 label="Email"></v-text-field>
 
               <v-text-field
-                type="password"
                 name="password"
                 v-model="password"
+                :append-icon="e1 ? 'visibility' : 'visibility_off'"
+                :append-icon-cb="() => (e1 =!e1)"
+                :type="e1 ? 'password' : 'text'"
                 label="Password"></v-text-field>
 
-              <div v-html="error" class="error"/>
+              <v-alert v-model="hasError" type="error" dismissible>
+                {{error}}
+              </v-alert>
               <v-btn
                 block dark
                 color="cyan"
@@ -42,7 +46,9 @@ export default {
     return {
       email: '',
       password: '',
-      error: null
+      error: null,
+      e1: true,
+      hasError: false
     }
   },
   methods: {
@@ -56,6 +62,7 @@ export default {
         this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
+        this.hasError = true
       }
     }
   }
@@ -64,10 +71,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.error {
-  color: red;
-}
-
 .negative-margin {
   margin-top: -80px;
 }

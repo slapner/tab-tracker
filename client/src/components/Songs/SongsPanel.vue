@@ -9,7 +9,9 @@
       right
       middle
       color="cyan"
-      @click="navigateTo({ name: 'songs-create' })"
+      :to="{
+        name: 'songs-create'
+      }"
       class="accent-2">
       <v-icon>add</v-icon>
     </v-btn>
@@ -28,12 +30,12 @@
           <v-btn
             dark
             color="primary"
-            @click="navigateTo({
+            :to="{
               name: 'song',
               params: {
                 songId: song.id
               }
-            })">
+            }">
             View
           </v-btn>
         </v-flex>
@@ -47,23 +49,19 @@
 
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       songs: null
     }
   },
-  async mounted () {
-    this.songs = (await SongsService.index()).data
-  },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
     }
   }
 }
